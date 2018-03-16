@@ -1,0 +1,41 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+ <s:Header>
+	<wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+		<wsse:UsernameToken>
+			<wsse:Username><%= authentication[:username] %></wsse:Username>
+			<wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText"><%= authentication[:password] %></wsse:Password>
+		</wsse:UsernameToken>
+	</wsse:Security>
+	<h:Authentication xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:h="http://xlogics.eu/blackbox">
+		<h:Culture>EN</h:Culture>
+		<h:UnitName><%= authentication[:unit_name] %></h:UnitName>
+	</h:Authentication>
+ </s:Header>
+  <s:Body>
+    <PrintParcelRequest xmlns="http://xlogics.eu/blackbox">
+      <InputParameters xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+      <% nodes.each do |node| %>
+       	<ShippingParameter>
+          <Name><%= node[:name] %></Name>
+          <Value><%= node[:value].to_s[0...([node[:length].to_i, node[:value].to_s.length].max)] %></Value>
+        </ShippingParameter>
+      <% end %>
+        <ShippingParameter>
+          <Name>ProductParcel</Name>
+          <Value>
+          	<![CDATA[<Table>
+          	<% parcel_contents_nodes.each do |content| %>
+          	<Row>
+          	  <% content.each do |property| %>
+	            <Name><%= property[:name] %></Name>
+	            <Value><%= property[:value].to_s[0...([property[:length].to_i, property[:value].to_s.length].max)] %></Value>
+          	  <% end %>
+	          </Row>
+          	<% end %>
+          </Table>]]>
+          </Value>
+        </ShippingParameter>
+      </InputParameters>
+    </PrintParcelRequest>
+  </s:Body>
+</s:Envelope>

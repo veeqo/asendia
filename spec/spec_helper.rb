@@ -1,4 +1,6 @@
 require "bundler/setup"
+require 'webmock/rspec'
+require 'byebug'
 require "asendia"
 
 RSpec.configure do |config|
@@ -11,4 +13,12 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+end
+
+require 'vcr'
+
+VCR.configure do |config|
+  config.cassette_library_dir = "#{Dir.pwd}/spec/vcr_cassettes/asendia"
+  config.configure_rspec_metadata!
+  config.hook_into :webmock
 end
