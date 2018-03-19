@@ -6,4 +6,5 @@ module Asendia
   autoload :Request, 'asendia/request'
   autoload :Response, 'asendia/response'
   autoload :Shipment, 'asendia/shipment'
+  autoload :Service,  'asendia/service'
 end
