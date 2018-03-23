@@ -67,7 +67,7 @@ RSpec.describe Asendia::Shipment, "#create" do
 
   before { subject }
 
-  context 'when the shipment request is successful', vcr: { cassette_name: 'shipments/successful', match_requests_on: [:method, :uri, :body] } do
+  context 'when the shipment request is successful', vcr: { cassette_name: 'shipments/successful', match_requests_on: [:method, :uri, :body, :headers] } do
     let(:shipment_data) { base_shipment_data }
 
     it 'returns a shipment object' do

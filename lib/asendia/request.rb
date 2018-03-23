@@ -16,8 +16,15 @@ module Asendia
     private
 
     def endpoint
-      domain = test_mode? ? 'sandbox' : 'delta'
-      "https://asendia.#{domain}.mpm.metapack.net/Blackbox/BlackBox.svc"
+      test_mode? ? sandbox_endpoint : production_endpoint
+    end
+
+    def sandbox_endpoint
+      "https://asendia.sandbox.mpm.metapack.net/Blackbox/BlackBox.svc"
+    end
+
+    def production_endpoint
+      "https://asendia.mpm.metapack.com/BlackBox/BlackBox.svc"
     end
 
     def headers
