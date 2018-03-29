@@ -1,3 +1,4 @@
+require 'logger'
 module Asendia
   class Request
     attr_accessor :action, :request_xml, :test_mode
@@ -9,11 +10,21 @@ module Asendia
     end
 
     def request
-      request = HTTParty.post(endpoint, headers: headers, body: request_xml)
+      request = HTTParty.post(endpoint, request_options)
       request
     end
 
     private
+
+    def request_options
+      options = { headers: headers, body: request_xml }
+      options.merge!(debug_output: STDOUT, logger: Logger.new(STDOUT)) if log_requests?
+      options
+    end
+
+    def log_requests?
+      Asendia.configuration.log_requests?
+    end
 
     def endpoint
       test_mode? ? sandbox_endpoint : production_endpoint
