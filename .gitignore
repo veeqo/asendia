@@ -7,7 +7,7 @@
 /pkg/
 /spec/reports/
 /tmp/
-/.byebug_history
+.byebug_history
 *.gem
 
 # rspec failure tracking
