@@ -23,15 +23,16 @@
         <ShippingParameter>
           <Name>ProductParcel</Name>
           <Value>
-          	<![CDATA[<Table>
-          	<% parcel_contents_nodes.each do |content| %>
-          	<Row>
-          	  <% content.each do |property| %>
-	            <Name><%= property[:name] %></Name>
-	            <Value><%= property[:value].to_s[0...([property[:length].to_i, property[:value].to_s.length].max)] %></Value>
-          	  <% end %>
-	          </Row>
-          	<% end %>
+            <![CDATA[<Table>
+            <% parcel_contents_nodes.each do |content| %>
+            <Row>
+            <% content.each do |property| %>
+            <<%= property[:name] %>>
+              <%= property[:value].to_s[0...([property[:length].to_i, property[:value].to_s.length].max)] %>
+            </<%= property[:name] %>>
+            <% end %>
+            </Row>
+            <% end %>
           </Table>]]>
           </Value>
         </ShippingParameter>
