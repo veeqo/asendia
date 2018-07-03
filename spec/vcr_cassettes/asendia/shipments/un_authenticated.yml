@@ -55,27 +55,27 @@ http_interactions:
         \     \n       \t<ShippingParameter>\n          <Name>Parcel.Height</Name>\n
         \         <Value>10</Value>\n        </ShippingParameter>\n      \n       \t<ShippingParameter>\n
         \         <Name>Parcel.Length</Name>\n          <Value>14</Value>\n        </ShippingParameter>\n
-        \     \n        <ShippingParameter>\n          <Name>ProductParcel</Name>\n
-        \         <Value>\n          \t<![CDATA[<Table>\n          \t\n          \t<Row>\n
-        \         \t  \n\t            <Name>ASLineItemNo</Name>\n\t            <Value>1</Value>\n
-        \         \t  \n\t            <Name>ASProductDesc</Name>\n\t            <Value>BIG
-        BOX</Value>\n          \t  \n\t            <Name>ASUnitQuantity</Name>\n\t
-        \           <Value>2</Value>\n          \t  \n\t            <Name>ASUnitValue</Name>\n\t
-        \           <Value>12</Value>\n          \t  \n\t            <Name>ASCurrency</Name>\n\t
-        \           <Value>GBP</Value>\n          \t  \n\t            <Name>ASUnitWeight</Name>\n\t
-        \           <Value>1</Value>\n          \t  \n\t            <Name>ASCountry</Name>\n\t
-        \           <Value>GBR</Value>\n          \t  \n\t            <Name>ASHSTariff</Name>\n\t
-        \           <Value>RTE</Value>\n          \t  \n\t          </Row>\n          \t\n
-        \         \t<Row>\n          \t  \n\t            <Name>ASLineItemNo</Name>\n\t
-        \           <Value>2</Value>\n          \t  \n\t            <Name>ASProductDesc</Name>\n\t
-        \           <Value>ANOTHER BIG BOX</Value>\n          \t  \n\t            <Name>ASUnitQuantity</Name>\n\t
-        \           <Value>1</Value>\n          \t  \n\t            <Name>ASUnitValue</Name>\n\t
-        \           <Value>10</Value>\n          \t  \n\t            <Name>ASCurrency</Name>\n\t
-        \           <Value>GBP</Value>\n          \t  \n\t            <Name>ASUnitWeight</Name>\n\t
-        \           <Value>1</Value>\n          \t  \n\t            <Name>ASCountry</Name>\n\t
-        \           <Value>GBR</Value>\n          \t  \n\t            <Name>ASHSTariff</Name>\n\t
-        \           <Value>ETE</Value>\n          \t  \n\t          </Row>\n          \t\n
-        \         </Table>]]>\n          </Value>\n        </ShippingParameter>\n
+         \     \n        <ShippingParameter>\n          <Name>ProductParcel</Name>\n
+        \         <Value>\n            <![CDATA[<Table>\n            \n            <Row>\n
+        \           \n            <ASLineItemNo>\n              1\n            </ASLineItemNo>\n
+        \           \n            <ASProductDesc>\n              BIG BOX\n            </ASProductDesc>\n
+        \           \n            <ASUnitQuantity>\n              2\n            </ASUnitQuantity>\n
+        \           \n            <ASUnitValue>\n              12\n            </ASUnitValue>\n
+        \           \n            <ASCurrency>\n              GBP\n            </ASCurrency>\n
+        \           \n            <ASUnitWeight>\n              1\n            </ASUnitWeight>\n
+        \           \n            <ASCountry>\n              GBR\n            </ASCountry>\n
+        \           \n            <ASHSTariff>\n              RTE\n            </ASHSTariff>\n
+        \           \n            </Row>\n            \n            <Row>\n            \n
+        \           <ASLineItemNo>\n              2\n            </ASLineItemNo>\n
+        \           \n            <ASProductDesc>\n              ANOTHER BIG BOX\n
+        \           </ASProductDesc>\n            \n            <ASUnitQuantity>\n
+        \             1\n            </ASUnitQuantity>\n            \n            <ASUnitValue>\n
+        \             10\n            </ASUnitValue>\n            \n            <ASCurrency>\n
+        \             GBP\n            </ASCurrency>\n            \n            <ASUnitWeight>\n
+        \             1\n            </ASUnitWeight>\n            \n            <ASCountry>\n
+        \             GBR\n            </ASCountry>\n            \n            <ASHSTariff>\n
+        \             ETE\n            </ASHSTariff>\n            \n            </Row>\n
+        \           \n          </Table>]]>\n          </Value>\n        </ShippingParameter>\n
         \     </InputParameters>\n    </PrintParcelRequest>\n  </s:Body>\n</s:Envelope>\n"
     headers:
       Content-Type:
