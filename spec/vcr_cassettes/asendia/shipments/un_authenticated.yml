@@ -40,7 +40,7 @@ http_interactions:
         \      \t<ShippingParameter>\n          <Name>Receiver.City</Name>\n          <Value>LYNX-2+2-1</Value>\n
         \       </ShippingParameter>\n      \n       \t<ShippingParameter>\n          <Name>Receiver.Province</Name>\n
         \         <Value>MY Province</Value>\n        </ShippingParameter>\n      \n
-        \      \t<ShippingParameter>\n          <Name>Receiver.Postcode</Name>\n          <Value>CF123343</Value>\n
+        \      \t<ShippingParameter>\n          <Name>Receiver.Postcode</Name>\n          <Value>75001</Value>\n
         \       </ShippingParameter>\n      \n       \t<ShippingParameter>\n          <Name>Receiver.Country</Name>\n
         \         <Value>FR</Value>\n        </ShippingParameter>\n      \n       \t<ShippingParameter>\n
         \         <Name>Receiver.Telephone</Name>\n          <Value>123445555</Value>\n
@@ -55,26 +55,19 @@ http_interactions:
         \     \n       \t<ShippingParameter>\n          <Name>Parcel.Height</Name>\n
         \         <Value>10</Value>\n        </ShippingParameter>\n      \n       \t<ShippingParameter>\n
         \         <Name>Parcel.Length</Name>\n          <Value>14</Value>\n        </ShippingParameter>\n
-         \     \n        <ShippingParameter>\n          <Name>ProductParcel</Name>\n
+        \     \n        <ShippingParameter>\n          <Name>ProductParcel</Name>\n
         \         <Value>\n            <![CDATA[<Table>\n            \n            <Row>\n
-        \           \n            <ASLineItemNo>\n              1\n            </ASLineItemNo>\n
-        \           \n            <ASProductDesc>\n              BIG BOX\n            </ASProductDesc>\n
-        \           \n            <ASUnitQuantity>\n              2\n            </ASUnitQuantity>\n
-        \           \n            <ASUnitValue>\n              12\n            </ASUnitValue>\n
-        \           \n            <ASCurrency>\n              GBP\n            </ASCurrency>\n
-        \           \n            <ASUnitWeight>\n              1\n            </ASUnitWeight>\n
-        \           \n            <ASCountry>\n              GBR\n            </ASCountry>\n
-        \           \n            <ASHSTariff>\n              RTE\n            </ASHSTariff>\n
-        \           \n            </Row>\n            \n            <Row>\n            \n
-        \           <ASLineItemNo>\n              2\n            </ASLineItemNo>\n
-        \           \n            <ASProductDesc>\n              ANOTHER BIG BOX\n
-        \           </ASProductDesc>\n            \n            <ASUnitQuantity>\n
-        \             1\n            </ASUnitQuantity>\n            \n            <ASUnitValue>\n
-        \             10\n            </ASUnitValue>\n            \n            <ASCurrency>\n
-        \             GBP\n            </ASCurrency>\n            \n            <ASUnitWeight>\n
-        \             1\n            </ASUnitWeight>\n            \n            <ASCountry>\n
-        \             GBR\n            </ASCountry>\n            \n            <ASHSTariff>\n
-        \             ETE\n            </ASHSTariff>\n            \n            </Row>\n
+        \           \n            <ASLineItemNo>1</ASLineItemNo>\n            \n            <ASProductDesc>BIG
+        BOX</ASProductDesc>\n            \n            <ASUnitQuantity>2</ASUnitQuantity>\n
+        \           \n            <ASUnitValue>12</ASUnitValue>\n            \n            <ASCurrency>GBP</ASCurrency>\n
+        \           \n            <ASUnitWeight>1</ASUnitWeight>\n            \n            <ASCountry>GBR</ASCountry>\n
+        \           \n            <ASHSTariff>RTE</ASHSTariff>\n            \n            </Row>\n
+        \           \n            <Row>\n            \n            <ASLineItemNo>2</ASLineItemNo>\n
+        \           \n            <ASProductDesc>ANOTHER BIG BOX</ASProductDesc>\n
+        \           \n            <ASUnitQuantity>1</ASUnitQuantity>\n            \n
+        \           <ASUnitValue>10</ASUnitValue>\n            \n            <ASCurrency>GBP</ASCurrency>\n
+        \           \n            <ASUnitWeight>1</ASUnitWeight>\n            \n            <ASCountry>GBR</ASCountry>\n
+        \           \n            <ASHSTariff>ETE</ASHSTariff>\n            \n            </Row>\n
         \           \n          </Table>]]>\n          </Value>\n        </ShippingParameter>\n
         \     </InputParameters>\n    </PrintParcelRequest>\n  </s:Body>\n</s:Envelope>\n"
     headers:
@@ -88,7 +81,7 @@ http_interactions:
       message: Internal Server Error
     headers:
       Date:
-      - Wed, 21 Mar 2018 13:06:16 GMT
+      - Mon, 09 Jul 2018 12:39:57 GMT
       Content-Type:
       - text/xml; charset=utf-8
       Content-Length:
@@ -96,8 +89,8 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=dc97b404fd38d9c08fd89b157e8ccae8d1521637576; expires=Thu, 21-Mar-19
-        13:06:16 GMT; path=/; domain=.metapack.net; HttpOnly
+      - __cfduid=dd5437eb4dd01ea7a7cda3bc7f708c8c41531139996; expires=Tue, 09-Jul-19
+        12:39:56 GMT; path=/; domain=.metapack.net; HttpOnly
       X-Content-Security-Policy:
       - default-src 'self' 'unsafe-inline' 'unsafe-eval';
       Content-Security-Policy:
@@ -119,12 +112,12 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 3ff0a2846ca006ee-LHR
+      - 437adb351c600a72-LHR
     body:
       encoding: UTF-8
       string: '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Body><s:Fault><faultcode>s:AuthenticationError</faultcode><faultstring
         xml:lang="en-US">Authorization error: A user with the specified credentials
         doesn''t exist!</faultstring></s:Fault></s:Body></s:Envelope>'
     http_version: 
-  recorded_at: Wed, 21 Mar 2018 13:06:16 GMT
+  recorded_at: Mon, 09 Jul 2018 12:39:57 GMT
 recorded_with: VCR 4.0.0

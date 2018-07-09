@@ -40,7 +40,7 @@ http_interactions:
         \      \t<ShippingParameter>\n          <Name>Receiver.City</Name>\n          <Value>LYNX-2+2-1</Value>\n
         \       </ShippingParameter>\n      \n       \t<ShippingParameter>\n          <Name>Receiver.Province</Name>\n
         \         <Value>MY Province</Value>\n        </ShippingParameter>\n      \n
-        \      \t<ShippingParameter>\n          <Name>Receiver.Postcode</Name>\n          <Value>CF123343</Value>\n
+        \      \t<ShippingParameter>\n          <Name>Receiver.Postcode</Name>\n          <Value>75001</Value>\n
         \       </ShippingParameter>\n      \n       \t<ShippingParameter>\n          <Name>Receiver.Country</Name>\n
         \         <Value>FR</Value>\n        </ShippingParameter>\n      \n       \t<ShippingParameter>\n
         \         <Name>Receiver.Telephone</Name>\n          <Value>123445555</Value>\n
@@ -57,24 +57,17 @@ http_interactions:
         \         <Name>Parcel.Length</Name>\n          <Value>14</Value>\n        </ShippingParameter>\n
         \     \n        <ShippingParameter>\n          <Name>ProductParcel</Name>\n
         \         <Value>\n            <![CDATA[<Table>\n            \n            <Row>\n
-        \           \n            <ASLineItemNo>\n              1\n            </ASLineItemNo>\n
-        \           \n            <ASProductDesc>\n              BIG BOX\n            </ASProductDesc>\n
-        \           \n            <ASUnitQuantity>\n              2\n            </ASUnitQuantity>\n
-        \           \n            <ASUnitValue>\n              12\n            </ASUnitValue>\n
-        \           \n            <ASCurrency>\n              GBP\n            </ASCurrency>\n
-        \           \n            <ASUnitWeight>\n              1\n            </ASUnitWeight>\n
-        \           \n            <ASCountry>\n              GBR\n            </ASCountry>\n
-        \           \n            <ASHSTariff>\n              RTE\n            </ASHSTariff>\n
-        \           \n            </Row>\n            \n            <Row>\n            \n
-        \           <ASLineItemNo>\n              2\n            </ASLineItemNo>\n
-        \           \n            <ASProductDesc>\n              ANOTHER BIG BOX\n
-        \           </ASProductDesc>\n            \n            <ASUnitQuantity>\n
-        \             1\n            </ASUnitQuantity>\n            \n            <ASUnitValue>\n
-        \             10\n            </ASUnitValue>\n            \n            <ASCurrency>\n
-        \             GBP\n            </ASCurrency>\n            \n            <ASUnitWeight>\n
-        \             1\n            </ASUnitWeight>\n            \n            <ASCountry>\n
-        \             GBR\n            </ASCountry>\n            \n            <ASHSTariff>\n
-        \             ETE\n            </ASHSTariff>\n            \n            </Row>\n
+        \           \n            <ASLineItemNo>1</ASLineItemNo>\n            \n            <ASProductDesc>BIG
+        BOX</ASProductDesc>\n            \n            <ASUnitQuantity>2</ASUnitQuantity>\n
+        \           \n            <ASUnitValue>12</ASUnitValue>\n            \n            <ASCurrency>GBP</ASCurrency>\n
+        \           \n            <ASUnitWeight>1</ASUnitWeight>\n            \n            <ASCountry>GBR</ASCountry>\n
+        \           \n            <ASHSTariff>RTE</ASHSTariff>\n            \n            </Row>\n
+        \           \n            <Row>\n            \n            <ASLineItemNo>2</ASLineItemNo>\n
+        \           \n            <ASProductDesc>ANOTHER BIG BOX</ASProductDesc>\n
+        \           \n            <ASUnitQuantity>1</ASUnitQuantity>\n            \n
+        \           <ASUnitValue>10</ASUnitValue>\n            \n            <ASCurrency>GBP</ASCurrency>\n
+        \           \n            <ASUnitWeight>1</ASUnitWeight>\n            \n            <ASCountry>GBR</ASCountry>\n
+        \           \n            <ASHSTariff>ETE</ASHSTariff>\n            \n            </Row>\n
         \           \n          </Table>]]>\n          </Value>\n        </ShippingParameter>\n
         \     </InputParameters>\n    </PrintParcelRequest>\n  </s:Body>\n</s:Envelope>\n"
     headers:
@@ -88,7 +81,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 21 Mar 2018 13:06:16 GMT
+      - Mon, 09 Jul 2018 12:39:56 GMT
       Content-Type:
       - text/xml; charset=utf-8
       Transfer-Encoding:
@@ -96,8 +89,8 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d9eeb46a20eccf43dae240791fc2f888b1521637576; expires=Thu, 21-Mar-19
-        13:06:16 GMT; path=/; domain=.metapack.net; HttpOnly
+      - __cfduid=dd3ba42e84d3781bcce6a9b1a87a760121531139996; expires=Tue, 09-Jul-19
+        12:39:56 GMT; path=/; domain=.metapack.net; HttpOnly
       Vary:
       - Accept-Encoding
       X-Xss-Protection:
@@ -121,16 +114,16 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 3ff0a282ef463476-LHR
+      - 437adb33aa4606e2-LHR
     body:
       encoding: UTF-8
       string: '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><s:Header><o:Security
         s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"><u:Timestamp
-        u:Id="_0"><u:Created>2018-03-21T13:06:16.229Z</u:Created><u:Expires>2018-03-21T13:11:16.229Z</u:Expires></u:Timestamp></o:Security></s:Header><s:Body><PrintParcelResponse
+        u:Id="_0"><u:Created>2018-07-09T12:39:56.803Z</u:Created><u:Expires>2018-07-09T12:44:56.803Z</u:Expires></u:Timestamp></o:Security></s:Header><s:Body><PrintParcelResponse
         xmlns="http://xlogics.eu/blackbox"><ExitStatus xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Status>Error</Status><StatusDetails><StatusDetail><Status>Error</Status><Code>3000</Code><Message>General
         printing error: Unable to generate XSC01 shipment: Shipment or Parcel weight
         must be more than 0.00kg;</Message><Details/></StatusDetail></StatusDetails></ExitStatus><OutputParameters
         xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/></PrintParcelResponse></s:Body></s:Envelope>'
-    http_version: 
-  recorded_at: Wed, 21 Mar 2018 13:06:16 GMT
+    http_version:
+  recorded_at: Mon, 09 Jul 2018 12:39:56 GMT
 recorded_with: VCR 4.0.0

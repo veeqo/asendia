@@ -27,9 +27,7 @@
             <% parcel_contents_nodes.each do |content| %>
             <Row>
             <% content.each do |property| %>
-            <<%= property[:name] %>>
-              <%= property[:value].to_s[0...([property[:length].to_i, property[:value].to_s.length].max)] %>
-            </<%= property[:name] %>>
+            <<%= property[:name] %>><%= property[:value].to_s[0...([property[:length].to_i, property[:value].to_s.length].max)] %></<%= property[:name] %>>
             <% end %>
             </Row>
             <% end %>

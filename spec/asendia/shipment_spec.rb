@@ -24,7 +24,7 @@ RSpec.describe Asendia::Shipment, "#create" do
         line_2: 'Quick Maths',
         city: 'LYNX-2+2-1',
         province: 'MY Province',
-        post_code: 'CF123343',
+        post_code: '75001',
         country: 'FR',
         phone: '123445555',
         mobile: '1233444433',
@@ -71,7 +71,7 @@ RSpec.describe Asendia::Shipment, "#create" do
     let(:shipment_data) { base_shipment_data }
 
     it 'returns a shipment object' do
-      expect(shipment.shipment).to include(tracking_number: '9L22490569553', reference_number: '10000n1682')
+      expect(shipment.shipment).to include(tracking_number: '9L22490569652', reference_number: '10000n5078')
     end
 
     it 'returns a valid label' do
