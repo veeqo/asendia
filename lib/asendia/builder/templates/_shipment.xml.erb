@@ -17,7 +17,7 @@
       <% nodes.each do |node| %>
        	<ShippingParameter>
           <Name><%= node[:name] %></Name>
-          <Value><%= node[:value].to_s[0...([node[:length].to_i, node[:value].to_s.length].max)] %></Value>
+          <Value><%= format_value(node[:value], node[:length]) %></Value>
         </ShippingParameter>
       <% end %>
         <ShippingParameter>
@@ -27,7 +27,7 @@
             <% parcel_contents_nodes.each do |content| %>
             <Row>
             <% content.each do |property| %>
-            <<%= property[:name] %>><%= property[:value].to_s[0...([property[:length].to_i, property[:value].to_s.length].max)] %></<%= property[:name] %>>
+            <<%= property[:name] %>><%= format_value(property[:value], property[:length]) %></<%= property[:name] %>>
             <% end %>
             </Row>
             <% end %>
