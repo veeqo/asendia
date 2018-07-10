@@ -49,7 +49,7 @@ module Asendia
             { name: 'ASCurrency', value: product[:currency], mandatory: false },
             { name: 'ASUnitWeight', value: product[:unit_weight], mandatory: false },
             { name: 'ASCountry', value: product[:country_of_origin], mandatory: false },
-            { name: 'ASHSTariff', value: product[:tariff_code], mandatory: false },
+            { name: 'ASHSTariff', value: product[:tariff_code], mandatory: false, length: 50 },
           ]
         end
       end
