@@ -2,7 +2,7 @@ require "spec_helper"
 
 RSpec.describe Asendia::Builder::Shipment, "#render_template" do
   let(:dummy_authentication) { { username: 'A-USER', password: 'SECURE-PASSWORD', unit_name: 'ASCENDIA' } }
-  let(:shipment_data) do
+  let(:base_shipment_data) do
     {
       shipment: {
         reference_number: 'DONT@ME',
@@ -65,6 +65,8 @@ RSpec.describe Asendia::Builder::Shipment, "#render_template" do
   subject { described_class.new(dummy_authentication, shipment_data).render_template }
 
   context 'when the request is successful' do #Needs a valid xsd for validation
+    let(:shipment_data) { base_shipment_data }
+
     xit 'returns a valid shipment XML schema' do
       xsd = Nokogiri::XML::Schema(shipment_xsd)
       doc = Nokogiri::XML(subject)
@@ -78,6 +80,14 @@ RSpec.describe Asendia::Builder::Shipment, "#render_template" do
       shipment_data[:shipment].merge(shipment_data[:address]).merge(dummy_authentication).each do |key, value|
         expect(subject).to include value
       end
+    end
+  end
+
+  context 'when the data contains unescaped characters' do
+    let(:shipment_data) { base_shipment_data.merge(address: { company_name: "Frank & Sons" }) }
+
+    it 'escapes the characters' do
+      expect(subject).to include("Frank &amp; Sons")
     end
   end
 end

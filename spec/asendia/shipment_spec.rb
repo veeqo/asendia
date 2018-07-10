@@ -83,6 +83,17 @@ RSpec.describe Asendia::Shipment, "#create" do
     end
   end
 
+  context 'when the shipment request contains unescaped characters', vcr: { cassette_name: 'shipments/successful_unescaped_characters', match_requests_on: [:method, :uri, :body, :headers] } do
+    let(:shipment_data) do
+      base_shipment_data[:address][:company_name] = "Frank & Sons"
+      base_shipment_data
+    end
+
+    it 'returns a valid shipment object' do
+      expect(shipment.shipment).to include(tracking_number: '9L22490569676', reference_number: '10000n5080')
+    end
+  end
+
   context 'when the shipment request is unsuccessful', vcr: { cassette_name: 'shipments/unsuccessful', match_requests_on: [:method, :uri, :body] } do
     let(:shipment_data) do
       base_shipment_data.merge(parcel: base_shipment_data[:parcel].merge(weight: '0'))

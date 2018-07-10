@@ -1,4 +1,5 @@
 require 'erb'
+require 'cgi'
 
 module Asendia
   module Builder
@@ -16,6 +17,12 @@ module Asendia
       end
 
       private
+
+      def format_value(value, max_length)
+        value = value.to_s
+        value = value[0...max_length] if max_length
+        CGI.escape_html(value)
+      end
 
       def define_template_methods
         template_data.keys.each do |key|
