@@ -43,7 +43,7 @@ module Asendia
         @parcel_contents_nodes ||= parcel[:contents].map.with_index(1) do |product, index|
           [
             { name: 'ASLineItemNo', value: index.to_s, mandatory: false },
-            { name: 'ASProductDesc', value: product[:description], mandatory: false },
+            { name: 'ASProductDesc', value: product[:description], mandatory: false, length: 255 },
             { name: 'ASUnitQuantity', value: product[:quantity], mandatory: false },
             { name: 'ASUnitValue', value: product[:value], mandatory: false },
             { name: 'ASCurrency', value: product[:currency], mandatory: false },
