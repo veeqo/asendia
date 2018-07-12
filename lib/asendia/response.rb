@@ -12,7 +12,13 @@ module Asendia
       @success ||= (authenticated? && status == "Success")
     end
 
+    def has_node?(name)
+      response["OutputParameters"].values.first.find { |node| node["Name"] == name }
+    end
+
     def node(name)
+      return unless has_node?(name)
+
       response["OutputParameters"].values.first.find { |node| node["Name"] == name }["Value"]
     end
 
