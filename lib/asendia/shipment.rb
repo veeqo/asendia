@@ -14,7 +14,11 @@ module Asendia
       if response.success?
         tracking_number = response.node("Shipment.Identcode")
         reference_number = response.node("AA.UniqueReference")
-        label = Base64.decode64(response.node("LABEL.#{tracking_number}.LabelPDF.PDF|Unicode.Label_#{tracking_number}_"))
+
+        label_data = response.node("LABEL.#{tracking_number}.LabelPDF.PDF|Unicode.Label_#{tracking_number}_") ||
+          response.node("LABEL.#{tracking_number}1.LabelPDF.PDF|Unicode.Label_#{tracking_number}1_")
+        label = Base64.decode64(label_data)
+
         self.shipment = {
           label: label,
           tracking_number: tracking_number,
