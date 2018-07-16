@@ -20,8 +20,8 @@ module Asendia
 
       def format_value(value, max_length)
         value = value.to_s
-        value = value[0...max_length] if max_length
-        CGI.escape_html(value)
+        value = CGI.escape_html(value)
+        value[0...(max_length || value.length)]
       end
 
       def define_template_methods
