@@ -15,8 +15,7 @@ module Asendia
         tracking_number = response.node("Shipment.Identcode")
         reference_number = response.node("AA.UniqueReference")
 
-        label_data = response.node("LABEL.#{tracking_number}.LabelPDF.PDF|Unicode.Label_#{tracking_number}_") ||
-                     response.node("LABEL.#{tracking_number}1.LabelPDF.PDF|Unicode.Label_#{tracking_number}1_")
+        label_data = remote_shipment_label(response, tracking_number)
         label = Base64.decode64(label_data)
 
         self.shipment = {
@@ -39,6 +38,14 @@ module Asendia
 
     def request_data
       @request_data ||= Builder::Shipment.new(authentication, attributes).render_template
+    end
+
+    def remote_shipment_label(response, tracking_number)
+      label_node_identifier = 'LABEL.'
+
+      response.node("LABEL.#{tracking_number}.LabelPDF.PDF|Unicode.Label_#{tracking_number}_") ||
+        response.node("LABEL.#{tracking_number}1.LabelPDF.PDF|Unicode.Label_#{tracking_number}1_") ||
+        response.find_node_containing(label_node_identifier)
     end
   end
 end

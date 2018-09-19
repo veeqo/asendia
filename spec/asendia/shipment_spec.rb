@@ -113,4 +113,20 @@ RSpec.describe Asendia::Shipment, "#create" do
       expect(shipment.errors).to include(error_message: 'Not Authorised, please check credentials')
     end
   end
+
+  context 'when the shipment label uses a dynamic node name', vcr: { cassette_name: 'shipments/dynamic_label_name', match_requests_on: [:method, :uri, :body, :headers] } do
+    let(:shipment_data) { base_shipment_data }
+
+    it 'returns a shipment object' do
+      expect(shipment.shipment).to include(tracking_number: '9L22490569652', reference_number: '10000n5078')
+    end
+
+    it 'returns a valid label' do
+      label_file = File.open('test_label.pdf', 'wb') { |file| file.write(shipment.shipment[:label]) }
+      reader = PDF::Reader.new("test_label.pdf")
+      expect(reader.pdf_version).to eq(1.4)
+      expect(reader.page_count).to eq(1)
+      expect(reader.page(1).text.reverse).to include(shipment_data[:address][:street])
+    end
+  end
 end

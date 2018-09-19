@@ -22,6 +22,10 @@ module Asendia
       response["OutputParameters"].values.first.find { |node| node["Name"] == name }["Value"]
     end
 
+    def find_node_containing(value)
+      response["OutputParameters"].values.first.find { |node| node["Name"].include?(value) }["Value"]
+    end
+
     def errors?
       !success?
     end
