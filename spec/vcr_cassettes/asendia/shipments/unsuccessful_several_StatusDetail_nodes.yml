@@ -1,0 +1,129 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://asendia.sandbox.mpm.metapack.net/Blackbox/BlackBox.svc
+    body:
+      encoding: UTF-8
+      string: "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">\n
+        <s:Header>\n\t<wsse:Security xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\">\n\t\t<wsse:UsernameToken>\n\t\t\t<wsse:Username>TEST-USER</wsse:Username>\n\t\t\t<wsse:Password
+        Type=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText\">SECURE-PASSWORD</wsse:Password>\n\t\t</wsse:UsernameToken>\n\t</wsse:Security>\n\t<h:Authentication
+        xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:h=\"http://xlogics.eu/blackbox\">\n\t\t<h:Culture>EN</h:Culture>\n\t\t<h:UnitName>Asendia</h:UnitName>\n\t</h:Authentication>\n
+        </s:Header>\n  <s:Body>\n    <PrintParcelRequest xmlns=\"http://xlogics.eu/blackbox\">\n
+        \     <InputParameters xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\">\n
+        \     \n       \t<ShippingParameter>\n          <Name>Shipment.RefNo</Name>\n
+        \         <Value>DONT@ME</Value>\n        </ShippingParameter>\n      \n       \t<ShippingParameter>\n
+        \         <Name>AA.Service</Name>\n          <Value>PTLP</Value>\n        </ShippingParameter>\n
+        \     \n       \t<ShippingParameter>\n          <Name>Shipment.ReturnValue</Name>\n
+        \         <Value>ShipmentIdentcode;AA.UniqueReference</Value>\n        </ShippingParameter>\n
+        \     \n       \t<ShippingParameter>\n          <Name>AA.Reference2</Name>\n
+        \         <Value>MEMEZ</Value>\n        </ShippingParameter>\n      \n       \t<ShippingParameter>\n
+        \         <Name>AA.EmailAlert</Name>\n          <Value>TRUE</Value>\n        </ShippingParameter>\n
+        \     \n       \t<ShippingParameter>\n          <Name>AA.DocumentsOnly</Name>\n
+        \         <Value>FALSE</Value>\n        </ShippingParameter>\n      \n       \t<ShippingParameter>\n
+        \         <Name>AA.ExportType</Name>\n          <Value>Merchandise</Value>\n
+        \       </ShippingParameter>\n      \n       \t<ShippingParameter>\n          <Name>AA.InvoiceNo</Name>\n
+        \         <Value>2+2-1=3</Value>\n        </ShippingParameter>\n      \n       \t<ShippingParameter>\n
+        \         <Name>AA.VatNo</Name>\n          <Value>1222</Value>\n        </ShippingParameter>\n
+        \     \n       \t<ShippingParameter>\n          <Name>Receiver.RefNo</Name>\n
+        \         <Value>CUSTOMER-REFERENCE</Value>\n        </ShippingParameter>\n
+        \     \n       \t<ShippingParameter>\n          <Name>Receiver.CompanyName</Name>\n
+        \         <Value>MANS NOT HOT LIMTED</Value>\n        </ShippingParameter>\n
+        \     \n       \t<ShippingParameter>\n          <Name>Receiver.Name1</Name>\n
+        \         <Value>BIG</Value>\n        </ShippingParameter>\n      \n       \t<ShippingParameter>\n
+        \         <Name>Receiver.Name2</Name>\n          <Value>SHAQ</Value>\n        </ShippingParameter>\n
+        \     \n       \t<ShippingParameter>\n          <Name>Receiver.HouseNo</Name>\n
+        \         <Value>21</Value>\n        </ShippingParameter>\n      \n       \t<ShippingParameter>\n
+        \         <Name>Receiver.Street</Name>\n          <Value>121 LYNX EFFECT</Value>\n
+        \       </ShippingParameter>\n      \n       \t<ShippingParameter>\n          <Name>Receiver.AddressDetails</Name>\n
+        \         <Value>Quick Maths</Value>\n        </ShippingParameter>\n      \n
+        \      \t<ShippingParameter>\n          <Name>Receiver.City</Name>\n          <Value>LYNX-2+2-1</Value>\n
+        \       </ShippingParameter>\n      \n       \t<ShippingParameter>\n          <Name>Receiver.Province</Name>\n
+        \         <Value>MY Province</Value>\n        </ShippingParameter>\n      \n
+        \      \t<ShippingParameter>\n          <Name>Receiver.Postcode</Name>\n          <Value>75001</Value>\n
+        \       </ShippingParameter>\n      \n       \t<ShippingParameter>\n          <Name>Receiver.Country</Name>\n
+        \         <Value>FR</Value>\n        </ShippingParameter>\n      \n       \t<ShippingParameter>\n
+        \         <Name>Receiver.Telephone</Name>\n          <Value>123445555</Value>\n
+        \       </ShippingParameter>\n      \n       \t<ShippingParameter>\n          <Name>Receiver.Mobile</Name>\n
+        \         <Value>1233444433</Value>\n        </ShippingParameter>\n      \n
+        \      \t<ShippingParameter>\n          <Name>Receiver.Email</Name>\n          <Value>big.shaq@man-not-hot.com</Value>\n
+        \       </ShippingParameter>\n      \n       \t<ShippingParameter>\n          <Name>Receiver.Email</Name>\n
+        \         <Value>big.shaq@man-not-hot.com</Value>\n        </ShippingParameter>\n
+        \     \n       \t<ShippingParameter>\n          <Name>Parcel.Weight</Name>\n
+        \         <Value>0</Value>\n        </ShippingParameter>\n      \n       \t<ShippingParameter>\n
+        \         <Name>Parcel.Width</Name>\n          <Value>22</Value>\n        </ShippingParameter>\n
+        \     \n       \t<ShippingParameter>\n          <Name>Parcel.Height</Name>\n
+        \         <Value>10</Value>\n        </ShippingParameter>\n      \n       \t<ShippingParameter>\n
+        \         <Name>Parcel.Length</Name>\n          <Value>14</Value>\n        </ShippingParameter>\n
+        \     \n        <ShippingParameter>\n          <Name>ProductParcel</Name>\n
+        \         <Value>\n            <![CDATA[<Table>\n            \n            <Row>\n
+        \           \n            <ASLineItemNo>1</ASLineItemNo>\n            \n            <ASProductDesc>BIG
+        BOX</ASProductDesc>\n            \n            <ASUnitQuantity>2</ASUnitQuantity>\n
+        \           \n            <ASUnitValue>12</ASUnitValue>\n            \n            <ASCurrency>GBP</ASCurrency>\n
+        \           \n            <ASUnitWeight>1</ASUnitWeight>\n            \n            <ASCountry>GBR</ASCountry>\n
+        \           \n            <ASHSTariff>RTE</ASHSTariff>\n            \n            </Row>\n
+        \           \n            <Row>\n            \n            <ASLineItemNo>2</ASLineItemNo>\n
+        \           \n            <ASProductDesc>ANOTHER BIG BOX</ASProductDesc>\n
+        \           \n            <ASUnitQuantity>1</ASUnitQuantity>\n            \n
+        \           <ASUnitValue>10</ASUnitValue>\n            \n            <ASCurrency>GBP</ASCurrency>\n
+        \           \n            <ASUnitWeight>1</ASUnitWeight>\n            \n            <ASCountry>GBR</ASCountry>\n
+        \           \n            <ASHSTariff>ETE</ASHSTariff>\n            \n            </Row>\n
+        \           \n          </Table>]]>\n          </Value>\n        </ShippingParameter>\n
+        \     </InputParameters>\n    </PrintParcelRequest>\n  </s:Body>\n</s:Envelope>\n"
+    headers:
+      Content-Type:
+      - text/xml
+      Soapaction:
+      - http://xlogics.eu/blackbox/BlackBoxContract/PrintParcel
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 09 Jul 2018 12:39:56 GMT
+      Content-Type:
+      - text/xml; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dd3ba42e84d3781bcce6a9b1a87a760121531139996; expires=Tue, 09-Jul-19
+        12:39:56 GMT; path=/; domain=.metapack.net; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Dns-Prefetch-Control:
+      - 'off'
+      X-Frame-Options:
+      - DENY
+      Content-Security-Policy:
+      - default-src 'self' 'unsafe-inline' 'unsafe-eval';
+      X-Webkit-Csp:
+      - default-src 'self' 'unsafe-inline' 'unsafe-eval';
+      X-Content-Security-Policy:
+      - default-src 'self' 'unsafe-inline' 'unsafe-eval';
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Content-Type-Options:
+      - nosniff
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 437adb33aa4606e2-LHR
+    body:
+      encoding: UTF-8
+      string: '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><s:Header><o:Security
+        s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"><u:Timestamp
+        u:Id="_0"><u:Created>2018-07-09T12:39:56.803Z</u:Created><u:Expires>2018-07-09T12:44:56.803Z</u:Expires></u:Timestamp></o:Security></s:Header><s:Body><PrintParcelResponse
+        xmlns="http://xlogics.eu/blackbox"><ExitStatus xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Status>Error</Status><StatusDetails><StatusDetail><Status>Warning</Status><Code>17000</Code><Message>User anonymous.api password has expired and should be changed in accordance with the currently selected security policy.</Message><Details/></StatusDetail><StatusDetail><Status>Error</Status><Code>3000</Code><Message>General
+        printing error: Unable to generate XSC01 shipment: Shipment or Parcel weight
+        must be more than 0.00kg;</Message><Details/></StatusDetail></StatusDetails></ExitStatus><OutputParameters
+        xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/></PrintParcelResponse></s:Body></s:Envelope>'
+    http_version:
+  recorded_at: Mon, 09 Jul 2018 12:39:56 GMT
+recorded_with: VCR 4.0.0

@@ -102,6 +102,14 @@ RSpec.describe Asendia::Shipment, "#create" do
     it 'returns the shipment errors' do
       expect(shipment.errors).to include(error_message: "General printing error: Unable to generate XSC01 shipment: Shipment or Parcel weight must be more than 0.00kg;")
     end
+
+    context 'with several StatusDetail nodes in StatusDetails collection', vcr: { cassette_name: 'shipments/unsuccessful_several_StatusDetail_nodes', match_requests_on: [:method, :uri, :body] } do
+      it 'combines messages into one' do
+        # TODO: move Error type messages before Warning
+        # asendia may return warning in the top of list
+        expect(shipment.errors).to include(error_message: "User anonymous.api password has expired and should be changed in accordance with the currently selected security policy.\nGeneral printing error: Unable to generate XSC01 shipment: Shipment or Parcel weight must be more than 0.00kg;")
+      end
+    end
   end
 
   context 'when the request is un-authorised', vcr: { cassette_name: 'shipments/un_authenticated', match_requests_on: [:method, :uri, :body] } do

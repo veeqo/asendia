@@ -40,7 +40,9 @@ module Asendia
       return [] if success?
 
       return "Not Authorised, please check credentials" unless authenticated?
-      response["ExitStatus"]["StatusDetails"].values.first["Message"]
+
+      status_detail = [response["ExitStatus"]["StatusDetails"]["StatusDetail"]].flatten
+      status_detail.map{ |detail| detail['Message'] }.join("\n")
     end
 
     private
