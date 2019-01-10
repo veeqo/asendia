@@ -83,13 +83,13 @@ RSpec.describe Asendia::Shipment, "#create" do
     end
   end
 
-  context 'when the shipment request contains unescaped characters', vcr: { cassette_name: 'shipments/successful_unescaped_characters', match_requests_on: [:method, :uri, :body, :headers] } do
+  context 'when the shipment request is successful and contains unescaped characters', vcr: { cassette_name: 'shipments/successful_unescaped_characters', match_requests_on: [:method, :uri, :body, :headers] } do
     let(:shipment_data) do
       base_shipment_data[:address][:company_name] = "Frank & Sons"
       base_shipment_data
     end
 
-    it 'returns a valid shipment object' do
+    it 'returns a shipment object' do
       expect(shipment.shipment).to include(tracking_number: '9L22490569676', reference_number: '10000n5080')
     end
   end
@@ -104,7 +104,7 @@ RSpec.describe Asendia::Shipment, "#create" do
     end
 
     context 'with several StatusDetail nodes in StatusDetails collection', vcr: { cassette_name: 'shipments/unsuccessful_several_StatusDetail_nodes', match_requests_on: [:method, :uri, :body] } do
-      it 'combines messages into one' do
+      it 'returns the shipment errors with all messages combined into single string' do
         # TODO: move Error type messages before Warning
         # asendia may return warning in the top of list
         expect(shipment.errors).to include(error_message: "User anonymous.api password has expired and should be changed in accordance with the currently selected security policy.\nGeneral printing error: Unable to generate XSC01 shipment: Shipment or Parcel weight must be more than 0.00kg;")
@@ -122,7 +122,7 @@ RSpec.describe Asendia::Shipment, "#create" do
     end
   end
 
-  context 'when the shipment label uses a dynamic node name', vcr: { cassette_name: 'shipments/dynamic_label_name', match_requests_on: [:method, :uri, :body, :headers] } do
+  context 'when the shipment request is successful and the shipment label response has a dynamic node name', vcr: { cassette_name: 'shipments/dynamic_label_name', match_requests_on: [:method, :uri, :body, :headers] } do
     let(:shipment_data) { base_shipment_data }
 
     it 'returns a shipment object' do
